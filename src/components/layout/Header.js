@@ -6,14 +6,16 @@ import {
     faClockFour,
 } from '@fortawesome/free-solid-svg-icons';
 
+import styles from './Header.module.css';
+
 function Header() {
     return (
-        <header className="header">
-            <div className="header__logo">
+        <header className={styles['header']}>
+            <div className={styles['header__logo']}>
                 <FontAwesomeIcon icon={faCloudSun} size="3x" />
                 <span>weatherly.io</span>
             </div>
-            <form className="header__search">
+            <form className={styles['header__search']}>
                 <FontAwesomeIcon icon={faLocationDot} />
                 <input
                     type="text"
@@ -21,10 +23,10 @@ function Header() {
                     placeholder="Enter zip code or city here..."
                 />
             </form>
-            <div className="header__info">
+            <div className={styles['header__info']}>
                 <FontAwesomeIcon icon={faClockFour} />
-                <span className="header__day">Sunday</span>
-                <span className="header__time">9:31 PM</span>
+                <span className={styles['header__day']}> Sunday </span>
+                <span className={styles['header__time']}>9:31 PM</span>
             </div>
         </header>
     );
