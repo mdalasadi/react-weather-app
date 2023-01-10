@@ -1,40 +1,39 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import styles from './Temperatures.module.css';
 
 function Temperatures() {
-    return <div className="card card--dark">
-        <div className="days">
-            <div>
-                <p>78</p>
-                <FontAwesomeIcon icon={faCloudSun} />
-                <p>Sunday</p>
-            </div>
-            <div>
-                <p>78</p>
-                <FontAwesomeIcon icon={faCloudSun} />
-                <p>Monday</p>
-            </div>
-            <div>
-                <p>78</p>
-                <FontAwesomeIcon icon={faCloudSun} />
-                <p>Tuesday</p>
-            </div>
-            <div>
-                <p>78</p>
-                <FontAwesomeIcon icon={faCloudSun} />
-                <p>Wednesday</p>
-            </div>
-            <div>
-                <p>78</p>
-                <FontAwesomeIcon icon={faCloudSun} />
-                <p>Friday</p>
-            </div>
-            <div>
-                <p>78</p>
-                <FontAwesomeIcon icon={faCloudSun} />
-                <p>Saturday</p>
-            </div>
+    return <div className={`${styles["card"]} ${styles["card--dark"]} ${styles["days"]}`}>
+        <div>
+            <p className={styles["days__temperature"]}>78</p>
+            <FontAwesomeIcon icon={faCloudSun} size="3x" />
+            <p className={styles["days__day"]}>Monday</p>
+        </div>
+        <div>
+            <p className={styles["days__temperature"]}>78</p>
+            <FontAwesomeIcon icon={faCloudSun} size="3x" />
+            <p className={styles["days__day"]}>Tuesday</p>
+        </div>
+        <div>
+            <p className={styles["days__temperature"]}>78</p>
+            <FontAwesomeIcon icon={faCloudSun} size="3x" />
+            <p className={styles["days__day"]}>Wednesday</p>
+        </div>
+        <div>
+            <p className={styles["days__temperature"]}>78</p>
+            <FontAwesomeIcon icon={faCloudSun} size="3x" />
+            <p className={styles["days__day"]}>Thursday</p>
+        </div>
+        <div>
+            <p className={styles["days__temperature"]}>78</p>
+            <FontAwesomeIcon icon={faCloudSun} size="3x" />
+            <p className={styles["days__day"]}>Friday</p>
+        </div>
+        <div>
+            <p className={styles["days__temperature"]}>78</p>
+            <FontAwesomeIcon icon={faCloudSun} size="3x" />
+            <p className={styles["days__day"]}>Saturday</p>
         </div>
     </div>
 }
