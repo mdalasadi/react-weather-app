@@ -8,7 +8,7 @@ import {
 
 import styles from './Header.module.css';
 
-function Header() {
+function Header(props) {
     return (
         <header className={styles['header']}>
             <div className={styles['header__logo']}>
@@ -25,8 +25,8 @@ function Header() {
             </form>
             <div className={styles['header__info']}>
                 <FontAwesomeIcon icon={faClockFour} />
-                <span className={styles['header__day']}> Sunday </span>
-                <span className={styles['header__time']}>9:31 PM</span>
+                <span className={styles['header__day']}> {props.date.day} </span>
+                <span className={styles['header__time']}>{props.date.currentTime}</span>
             </div>
         </header>
     );
