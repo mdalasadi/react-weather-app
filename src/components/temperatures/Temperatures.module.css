@@ -23,6 +23,10 @@
   color: yellow;
   margin: 1rem 0;
 }
+.days img {
+  width: 100%;
+  transform: scale(1.2);
+}
 .days__day {
   color: #cfcfcf;
 }
