@@ -6,7 +6,7 @@ import WeatherSummary from './components/weatherSummary/WeatherSummary';
 
 function App() {
 
-  const [data, setData] = useState({ city: '', desc: '', temp: '' });
+  const [data, setData] = useState({ city: '', desc: '', temp: '', icon: '' });
   const [date, setDate] = useState({ day: '', currentTime: '' });
   const [fiveDaysForecast, setFiveDaysForecast] = useState([]);
 
@@ -18,6 +18,7 @@ function App() {
           city: `${res.name},${res.sys.country}`,
           desc: res.weather.at(0).description,
           temp: Math.round(res.main.temp),
+          icon: res.weather.at(0).icon,
         });
 
         const responseDate = new Date(res.dt * 1000);
