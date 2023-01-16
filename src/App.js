@@ -9,9 +9,14 @@ function App() {
   const [data, setData] = useState({ city: '', desc: '', temp: '', icon: '' });
   const [date, setDate] = useState({ day: '', currentTime: '' });
   const [fiveDaysForecast, setFiveDaysForecast] = useState([]);
+  const [city, setCity] = useState('london');
+
+  const getCityNameHandler = (enteredCity) => {
+    setCity(enteredCity);
+  }
 
   useEffect(() => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=baghdad&units=metric&appid=117dd5193319ea7bda366b58c1596d3c')
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=117dd5193319ea7bda366b58c1596d3c`)
       .then(response => response.json())
       .then(res => {
         setData({
@@ -26,7 +31,7 @@ function App() {
       })
       .catch(err => console.error(err));
 
-    fetch('https://api.openweathermap.org/data/2.5/forecast?q=baghdad&units=metric&appid=117dd5193319ea7bda366b58c1596d3c')
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=117dd5193319ea7bda366b58c1596d3c`)
       .then(response => response.json())
       .then((res) => {
         const currentDate = new Date(res.list.at(0).dt_txt.split(' ').at(0));
@@ -40,10 +45,10 @@ function App() {
           .map(temp => ({ day: new Date(temp.dt_txt).toLocaleString('en-US', { weekday: 'long' }), temperature: Math.round(temp.main.temp), icon: temp.weather.at(0).icon })));
       })
       .catch(err => console.error(err));
-  }, []);
+  }, [city]);
 
   return <>
-    <Header date={date} />
+    <Header date={date} onGetCityName={getCityNameHandler} />
     <WeatherSummary data={data} />
     <TemperaturesChart />
     <Temperatures temps={fiveDaysForecast} />
