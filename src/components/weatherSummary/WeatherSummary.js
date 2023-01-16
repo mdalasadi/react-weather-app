@@ -4,7 +4,6 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import styles from './WeatherSummary.module.css';
 
 function WeatherSummary(props) {
-    console.log(props.data.icon)
     return (
         <div className={styles['summary']} >
             <section className={styles['summary__degree']}>
