@@ -10,6 +10,7 @@ function App() {
   const [date, setDate] = useState({ day: '', currentTime: '' });
   const [fiveDaysForecast, setFiveDaysForecast] = useState([]);
   const [city, setCity] = useState('london');
+  const [chartData, setChartData] = useState({ labels: [], temps: [] });
 
   const getCityNameHandler = (enteredCity) => {
     setCity(enteredCity);
@@ -43,6 +44,12 @@ function App() {
         setFiveDaysForecast(res.list
           .filter(data => nextFiveDays.includes(data.dt_txt))
           .map(temp => ({ day: new Date(temp.dt_txt).toLocaleString('en-US', { weekday: 'long' }), temperature: Math.round(temp.main.temp), icon: temp.weather.at(0).icon })));
+
+        setChartData((_) => {
+          const labels = res.list.slice(0, 8).map(data => new Date(data.dt_txt).toLocaleString('en-US', { hour: 'numeric' }));
+          const temps = res.list.slice(0, 8).map(data => Math.round(data.main.temp));
+          return { labels, temps };
+        })
       })
       .catch(err => console.error(err));
   }, [city]);
@@ -50,7 +57,7 @@ function App() {
   return <>
     <Header date={date} onGetCityName={getCityNameHandler} />
     <WeatherSummary data={data} />
-    <TemperaturesChart />
+    <TemperaturesChart data={chartData} />
     <Temperatures temps={fiveDaysForecast} />
   </>
 }

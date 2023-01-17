@@ -24,7 +24,7 @@ ChartJS.register(
     Legend
 );
 
-function TemperaturesChart() {
+function TemperaturesChart(props) {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
@@ -69,11 +69,11 @@ function TemperaturesChart() {
     };
 
     const data = {
-        labels: ['10PM', '1AM', '4AM', '7AM', '10AM', '1PM', '4PM', '7PM'],
+        labels: props.data.labels,
         datasets: [
             {
                 label: 'Temperature',
-                data: [70, 68, 72, 74, 74, 73, 76, 71],
+                data: props.data.temps,
             },
         ],
     };
