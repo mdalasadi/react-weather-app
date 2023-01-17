@@ -39,19 +39,13 @@ function TemperaturesChart(props) {
         },
         scales: {
             y: {
-                grid: {
-                    display: false,
-                },
-                border: {
-                    display: false,
+                ticks: {
+                    color: 'rgba(255, 255, 255, 0.5)',
                 },
             },
             x: {
-                grid: {
-                    display: false,
-                },
-                border: {
-                    display: false,
+                ticks: {
+                    color: 'rgba(255, 255, 255, 0.5)',
                 },
             }
         },
@@ -72,8 +66,10 @@ function TemperaturesChart(props) {
         labels: props.data.labels,
         datasets: [
             {
+                fill: true,
                 label: 'Temperature',
                 data: props.data.temps,
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ],
     };
