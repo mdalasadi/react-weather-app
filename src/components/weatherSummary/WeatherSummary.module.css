@@ -1,0 +1,52 @@
+.summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  padding: 1.5rem;
+  margin: 1.2rem 0;
+  user-select: none;
+}
+
+.summary__degree {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 0.1rem solid #989898;
+  padding: 1rem 2rem;
+}
+.summary__degree svg {
+  color: yellow;
+  font-size: 7rem;
+}
+.summary__degree img {
+  margin: 0 1rem;
+  width: 100%;
+  transform: scale(1.2);
+}
+.summary__degree h1 {
+  font-size: 7rem;
+  font-weight: 500;
+}
+
+.summary__location {
+  padding: 1rem 2rem;
+}
+.summary__location p {
+  /* color: #dedede; */
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+  word-spacing: 0.1rem;
+}
+.summary__location h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  /* color: #dedede; */
+  word-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
+}
+.summary__location h1 svg{
+  font-size: 2.6rem;
+}
